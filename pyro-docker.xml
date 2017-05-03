@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- External projects -->
+  <remote fetch="http://git.yoctoproject.org/git/" name="yocto"/>
+  <remote fetch="git://git.openembedded.org/" name="oe"/>
+  <remote fetch="git://github.com/meta-qt5/" name="qt5"/>
+  <remote fetch="git://github.com/intel-aero/" name="intel-aero"/>
+  <remote fetch="git://github.com/IntelRealSense/" name="intel-realsense"/>
+  <remote fetch="git://github.com/whbruce/" name="hbruce"/>
+
+  <project name="poky" remote="yocto" revision="pyro"/>
+  <project name="meta-intel" remote="yocto" path="meta-intel" revision="master"/>
+  <project name="meta-intel-aero" remote="hbruce" path="meta-intel-aero" revision="pyro"/>
+  <project name="meta-openembedded" remote="oe" path="meta-openembedded" revision="pyro"/>
+  <project name="meta-virtualization" remote="yocto" path="meta-virtualization" revision="dd49614c70364a11dc50798f32f1b2ffa3d0409e"/>
+</manifest>
+
+<!--
+
+Build Instructions:
+===================
+
+# Initialize build environment variables by running
+export TEMPLATECONF=../meta-intel-aero/conf/docker
+source poky/oe-init-build-env
+
+# Build docker-image
+bitbake docker-image
+
+-->
